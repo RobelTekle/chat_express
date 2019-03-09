@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
+const chatList = require('./chatList')
+const chatBoxMessages = require('./chatBoxMessages')
+
 const routes = {
   get: [
     [
@@ -13,15 +16,19 @@ const routes = {
     [
       '/api/chatList',
       (req, res) => {
-        // send ChatBox list
-        res.send('chatList')
+        chatList(req, res)
       },
     ],
     [
       '/api/chatBox/:id',
       (req, res) => {
-        // send messages of a ChatBox
-        res.send('chatBox')
+        chatBoxMessages(req, res)
+      },
+    ],
+    [
+      '/*',
+      (req, res) => {
+        res.status(400).json({ erro: 'Invalid route', data: null })
       },
     ],
   ],
@@ -45,6 +52,12 @@ const routes = {
       (req, res) => {
         // check the ID
         res.send('check the ID')
+      },
+    ],
+    [
+      '/*',
+      (req, res) => {
+        res.status(400).json({ erro: 'Invalid route', data: null })
       },
     ],
   ],
