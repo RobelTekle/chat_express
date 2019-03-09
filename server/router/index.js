@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const chatList = require('./chatList')
-const chatBoxMessages = require('./chatBoxMessages')
+const chatBoxData = require('./chatBoxData')
+const postMessage = require('./postMessage')
 
 const routes = {
   get: [
@@ -22,7 +23,7 @@ const routes = {
     [
       '/api/chatBox/:id',
       (req, res) => {
-        chatBoxMessages(req, res)
+        chatBoxData(req, res)
       },
     ],
     [
@@ -34,10 +35,9 @@ const routes = {
   ],
   post: [
     [
-      '/api/postMessage',
+      '/api/postMessage/:chatId',
       (req, res) => {
-        // post a message
-        res.send('post a message')
+        postMessage(req, res)
       },
     ],
     [

@@ -3,9 +3,10 @@ const { Schema, model } = require('mongoose')
 const messageType = {
   id: String,
   text: String,
-  data: String,
+  date: String,
   authorId: String,
-  chatBoxId: String
+  authorName: String,
+  chatBoxId: String,
 }
 
 const messageSchema = Schema(messageType)
