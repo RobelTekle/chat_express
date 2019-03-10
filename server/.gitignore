@@ -1,2 +1,2 @@
 node_modules
-db/secrets.js
+src/db/secrets.js
