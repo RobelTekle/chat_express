@@ -1,8 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-require('./db/index')
+require('./src/db')
 
-const router = require('./router')
+const router = require('./src/router')
 const app = express()
 
 app.use(bodyParser.json())
