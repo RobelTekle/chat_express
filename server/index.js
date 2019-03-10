@@ -3,7 +3,7 @@ require('./src/db')
 
 const bodyParser = require('body-parser')
 const router = require('./src/router')
-const auth = require('./src/Auth')
+const auth = require('./src/middleware/Auth')
 
 const app = express()
 
