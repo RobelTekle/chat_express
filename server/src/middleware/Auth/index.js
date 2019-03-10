@@ -1,5 +1,5 @@
-const User = require('../db/models/Users')
-const { errorSender } = require('../helpers/shortResponse')
+const User = require('../../db/models/Users')
+const { errorSender } = require('../../helpers/shortResponse')
 
 const auth = async (req, res, next) => {
   const { chatapp_token: token } = req.headers
