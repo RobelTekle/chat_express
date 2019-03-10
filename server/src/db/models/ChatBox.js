@@ -6,7 +6,7 @@ const chatBoxType = {
   messagesId: [String],
 }
 
-const chatBoxSchema = Schema(chatBoxType)
+const chatBoxSchema = new Schema(chatBoxType)
 const ChatBox = model('ChatBox', chatBoxSchema)
 
 module.exports = ChatBox

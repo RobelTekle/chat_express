@@ -9,7 +9,7 @@ const messageType = {
   chatBoxId: String,
 }
 
-const messageSchema = Schema(messageType)
+const messageSchema = new Schema(messageType, { timestamps: true })
 const Message = model('Message', messageSchema)
 
 module.exports = Message

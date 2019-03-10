@@ -28,7 +28,7 @@ const postMessage = async (req, res) => {
     const message = new Message(messageFormat.message)
     message.save((error, message) => {
       if (error) {
-        errorSender(400, error.error, res)
+        errorSender(400, error, res)
       } else {
         successSender(message, res)
       }

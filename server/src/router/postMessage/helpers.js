@@ -16,11 +16,10 @@ const findChatBox = async chatId => {
   return obj
 }
 
-const checkBody = (body, chatBoxId) => {
-  if (!body) return { error: 'Body is required', message: null }
+const checkBody = (body = {}, chatBoxId) => {
   const requiredArgs = ['text']
   const allIsFilled = Object.keys(body).every(key => requiredArgs.includes(key))
-  if (!allIsFilled) {
+  if (!allIsFilled || Object.keys(body).length === 0) {
     return {
       error: `Invalid arguments filled : ${JSON.stringify(
         Object.keys(body),
