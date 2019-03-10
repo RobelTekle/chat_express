@@ -17,6 +17,7 @@ const usersType = {
     type: String,
     required: true,
   },
+  token: String,
 }
 
 const userSchema = new Schema(usersType)

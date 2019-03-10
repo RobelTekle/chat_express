@@ -1,10 +1,17 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 require('./src/db')
 
+const bodyParser = require('body-parser')
 const router = require('./src/router')
+const auth = require('./src/Auth')
+
 const app = express()
 
+app.get('/login', (req, res) => {
+  res.send('Login page')
+})
+
+app.use('*', auth)
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded())
 app.use('/', router)

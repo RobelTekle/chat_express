@@ -14,7 +14,9 @@ const chatBoxMessages = (req, res) => {
     if (error) {
       errorSender(500, error, res)
     } else {
-      const orderedMessages = sortBy(messages, m => new Date(m.date).getTime())
+      const orderedMessages = sortBy(messages, m =>
+        new Date(m.createdAt || m.date).getTime(),
+      )
       successSender(orderedMessages, res)
     }
   })

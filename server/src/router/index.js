@@ -54,7 +54,7 @@ const routes = {
       },
     ],
     [
-      'api/login',
+      '/api/login',
       (req, res) => {
         res.send('check the ID')
       },
