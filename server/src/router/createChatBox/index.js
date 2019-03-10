@@ -1,5 +1,5 @@
-const ChatBox = require('../../db/models/ChatBox')
 const { v4 } = require('uuid')
+const ChatBox = require('../../db/models/ChatBox')
 
 const { errorSender, successSender } = require('../../helpers/shortResponse')
 
@@ -13,8 +13,8 @@ const createChatBox = (req, res) => {
       id: v4(),
       messagesId: [],
     }
-    const chat = new ChatBox(chatboxData)
-    chat.save((error, chat) => {
+    const newChat = new ChatBox(chatboxData)
+    newChat.save((error, chat) => {
       if (error) {
         errorSender(400, error, res)
       } else {

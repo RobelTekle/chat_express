@@ -1,6 +1,7 @@
 {
     "env": {
         "node": true,
+        "commonjs": true,
         "es6": true
     },
     "extends": "airbnb-base",
@@ -9,14 +10,14 @@
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+        "ecmaVersion": 2018
     },
     "rules": {
         "semi": [1, "never"],
         "max-len": ["error", { "code": 80 }],
         "implicit-arrow-linebreak": 0,
         "no-console": 0,
-        "camelcase": 0
+        "camelcase": 0,
+        "arrow-parens": 0
     }
 }

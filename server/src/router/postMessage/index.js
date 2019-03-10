@@ -6,14 +6,14 @@ const postMessage = async (req, res) => {
   const { params, body } = req
   if (!params || !params.chatId) {
     errorSender(400, 'ChatBox Id argument required', res)
-    return
   } else {
     const { error, chatBox } = await findChatBox(params.chatId)
 
     if (error) {
       errorSender(500, error, res)
       return
-    } else if (!chatBox) {
+    }
+    if (!chatBox) {
       errorSender(400, 'ChatBox not found', res)
       return
     }
@@ -25,10 +25,10 @@ const postMessage = async (req, res) => {
       return
     }
 
-    const message = new Message(messageFormat.message)
-    message.save((error, message) => {
-      if (error) {
-        errorSender(400, error, res)
+    const newMessage = new Message(messageFormat.message)
+    newMessage.save((err, message) => {
+      if (err) {
+        errorSender(400, err, res)
       } else {
         successSender(message, res)
       }

@@ -1,4 +1,5 @@
 const express = require('express')
+
 const router = express.Router()
 
 const chatList = require('./chatList')
@@ -69,8 +70,8 @@ const routes = {
 }
 
 const methods = Object.keys(routes)
-methods.forEach(method => {
-  for (let i = 0; i < routes[method].length; i++) {
+methods.forEach((method) => {
+  for (let i = 0; i < routes[method].length; i += 1) {
     router[method](routes[method][i][0], routes[method][i][1])
   }
 })
