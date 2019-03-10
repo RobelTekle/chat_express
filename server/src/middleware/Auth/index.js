@@ -8,11 +8,11 @@ const auth = async (req, res, next) => {
     return
   }
   await User.findOne({ token }, (error, user) => {
-    if (user) {
+    if (error) {
+      errorSender(500, error, res)
+    } else if (user) {
       req.chatapp_user = user
       next()
-    } else if (error) {
-      errorSender(500, error, res)
     } else {
       res.redirect('/login')
     }
